@@ -10,3 +10,4 @@ chatterbot==1.0.8
 Flask==2.2.5
 mysql_connector_repackaged==0.3.1
 pymongo==4.5.0
+spacy==3.7.0
