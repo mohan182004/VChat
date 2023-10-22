@@ -1,0 +1,38 @@
+/* CSS for login and registration page */
+.bg-nav{
+    background: #bed0f3;  /* fallback for old browsers */
+    }
+
+nav{
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    box-shadow: 1px 2px 20px#239981;
+    text-align: center;
+}
+
+a{
+    color: black;
+}
+
+h1{
+    padding: 10px;
+    box-shadow: 1px 2px 20px  #80c2b5;
+    background: #b6c3dd;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.graduate{
+    text-align: center;
+    font-size: 12rem;
+    color:rgb(62, 62, 102);
+    transition: transform .5s ;
+}
+.graduate:hover {
+    transform: scale(1.1);
+  }
+
+.card {
+    box-shadow: 2px 1px 30px grey;
+}
+.mt-100{
+        margin-top:100px;
+    }

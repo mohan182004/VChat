@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- css -->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css')}}">
+
+      <title>FlaskyBot registration</title>
+
+<!-- scripts for form inputs -->
+      <script>
+        function validateForm() {
+          var namereg = document.forms["myForm"]["namereg"].value;
+          var emailreg = document.forms["myForm"]["emailreg"].value;
+          var passwordreg = document.forms["myForm"]["passwordreg"].value;
+          if (namereg == "" || emailreg == "" || passwordreg == "") {
+            swal({
+                text: "All fields are Required",
+                icon: "error",
+                });
+                return false;
+            }
+        }
+      </script>
+  </head>
+  <body class="bg-nav">
+  <nav >
+      <a href="" class="navbar-brand text-dark">FlaskyBot</a>
+  </nav>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-8">
+          <h1  class="mb-0 text-dark display-4 mt-100" style="font-size:80px"> Bring the power of Analytics to your smartphone</h1>
+        </div>
+        <div class="col-md-4">
+
+               {% with messages = get_flashed_messages() %}
+         {% if messages %}
+
+            {% for message in messages %}
+                <div  class="alert alert-warning alert-dismissible fade show " role="alert">
+                    <span> {{ message }}</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            {% endfor %}
+
+         {% endif %}
+        {% endwith %}
+
+<!-- card for form registration -->
+            <div class="card mt-100">
+              <div class="card-body h-25">
+                <form name="myForm" class="form" method="post" action="/register_validation">
+                    <label>Name</label>
+                  <input autocomplete="off" type="text" class="form-control" name="namereg" required ><br>
+                  <label>Email</label>
+                  <input type="email" class="form-control" name="emailreg" required  ><br>
+                  <label>Password</label>
+                  <input type="password" class="form-control " name="passwordreg" required ><br>
+                  <input type="submit" onclick="validateForm()" class="btn btn-primary btn-block btn-lg" value="Register">
+                </form><br>
+                <p style="margin-left:40px">Already a student? <a class="" href="/">Login Account</a></p>
+                  <p class="mx-auto text-muted">   © Group 33</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </body>
+</html>

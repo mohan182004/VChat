@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>FlaskyBot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+     <script src="https://kit.fontawesome.com/f6b5a1856e.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+        <!-- css -->
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+
+<!--  internal css for compare part  -->
+<style>
+    .boxed{
+    display: none;
+    }
+     #compare{
+     margin-top: -9px;
+     margin-left: 77%;
+     border-bottom-left-radius: 110px;
+     border-bottom-right-radius: 110px;
+     font-size: 0.7rem;
+     padding: 0px;
+     text-transform: none;
+     position: sticky;
+     top: 0%;
+}
+/* compare button under main table */
+#but_compare{
+    border-radius: 2rem;
+}
+</style>
+
+</head>
+<body method="post" action="/home">
+<div style=" background: linear-gradient(to right, #e0eafc, #cfdef3);" class=" h4 bg-nav d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  border-bottom shadow-sm">
+  <h5 style="font-size: 2.5rem;" class="my-0 mr-md-auto font-weight-normal"><i class="fas fa-graduation-cap"></i>Xyz College</h5>
+
+      <nav class="my-2 my-md-0 mr-md-4">
+        <a class="p-2 text-dark" href="#">About</a>
+        <a class="p-2 text-dark" href="#">Courses</a>
+        <a class="p-2 text-dark" href="#">Admissions</a>
+        <a class="p-2 text-dark" href="#">Placements</a>
+      </nav>
+
+      <a class="btn btn-outline-primary" href="/logout">Logout</a>
+</div>
+
+    <div class="main-class">
+        <div class="boxed">
+            <p class="title"> Share your Doubts with me to get a solution!</p>
+            <button type="button" data-toggle="modal" data-target="#exampleModal" id="compare" class="mui-btn mui-btn--raised mui-btn--accent cmp">
+                &nbsp; Compare Courses? &nbsp;</button>
+                <div id="chatbox" style="margin-top: 20px;">
+                    <p class="botText">
+                        <span style="font-size:0.8rem"><i class="fas fa-robot"></i>&nbsp;I'm Flasky for your help!</span>
+                    </p>
+                </div>
+
+                 <div id="userInput">
+                    <div class="mui-textfield">
+                        <input id="textInput" type="text" name="msg" placeholder="Add a Query?">
+                        <form action="/speech" method="post">
+                          <button class="mic_button" type="submit"><i class="fas fa-microphone"></i></button>
+                      </form>
+                    </div>
+                </div>
+
+        </div>
+        <!-- image of bot -->
+        <div class="div-last">
+            <img class="but-last" src="/static/images/botimg1.png" alt="bot img">
+        </div>
+
+    <!-- Modal for courses -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 style="background-color: cornsilk;" class="modal-title" id="exampleModalLabel">Choose Courses for Comparing</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container comp-container">
+                            <div class="box">
+                                <select id="inp1">
+                                <option value="BScIT">BScIT</option>
+                                <option value="BScCS">BScCS</option>
+                                <option value="ME">ME</option>
+                                </select>
+                                <select id="inp2">
+                                <option value="BScIT">BScIT</option>
+                                <option value="BScCS">BScCS</option>
+                                <option value="ME">ME</option>
+                                </select>
+
+                                <button class="mui-btn mui-btn--primary" id="but_compare">Compare</button>
+                            </div>
+
+                            <!-- table -->
+                            <span style="font-size: 0.9rem;" id="table_span">
+                            </span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+<div><i style="font-size: 20rem; margin-left: 30%;" class="fas fa-university"></i></div>
+<section style="background-color: rgb(252, 251, 250); margin: auto 1%; font-size: 1.3rem;">
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti vero incidunt, quae porro excepturi, est ea itaque perferendis quis deserunt ipsa omnis eveniet dolorem, in nesciunt officia explicabo. Accusantium, impedit!</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+
+                <div  class=" mx-auto fixed-bottom alert alert-success alert-dismissible fade show w-50" role="alert">
+                    <span> {{ message }}</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias excepturi quae suscipit facilis eveniet aspernatur pariatur? Totam laudantium impedit sed facere, repellat cupiditate exercitationem. Non voluptates alias omnis nemo esse.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error sunt asperiores assumenda nisi cupiditate, totam aliquid iste qui molestias magni veritatis! Praesentium nobis excepturi provident consequatur voluptatibus quos iste perferendis!
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, sed maxime quod eius illo sunt assumenda saepe adipisci cupiditate beatae mollitia. Quod sed dolorem ipsum numquam quos quaerat esse aliquid?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel soluta autem, corporis ab distinctio odit expedita reprehenderit? At sapiente, illum molestiae quam cumque neque amet consequuntur in quod! Esse, incidunt.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint deserunt, rem quasi beatae, exercitationem eos doloremque nam qui laborum soluta harum quas earum ab natus assumenda debitis quam inventore!
+</div>
+</section>
+    <!--  JavaScript -->
+<script>
+
+// hide and show toggle
+$(document).ready(function(){
+    $(".but-last").click(function(){
+      $(".boxed").slideToggle(1000);
+    });
+  });
+
+
+// main function
+function getBotResponse() {
+  var userInput = document.getElementById("userInput");
+    var rawText = $("#textInput").val();
+    var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    userInput.scrollIntoView({
+            block: "start",
+            behavior: "smooth"
+        });
+ if( rawText == ""){
+    var emp = "Can't read Empty text";
+    var botHtml = '<p class="botText"><span><i class="fas fa-robot"></i>&nbsp;' + emp + "</span></p>";
+    $("#chatbox").append(botHtml);
+        userInput.scrollIntoView({
+                block: "start",
+                behavior: "smooth"
+    });
+  }
+  else{
+    $.get("/get", { msg: rawText
+    }).done(function (data) {
+        var botHtml = '<p class="botText"><span><i class="fas fa-robot"></i>&nbsp;' + data +  "</span></p>";
+        $("#chatbox").append(botHtml);
+        userInput.scrollIntoView({
+                block: "start",
+                behavior: "smooth"
+            });
+    });
+  }
+}
+// compare feature
+var comp = document.getElementById("compare");
+
+// after enter gives op
+$("#textInput").keypress(function (e) {
+    if (e.which == 13) {
+        getBotResponse();
+    }
+});
+
+</script>
+
+<!--css library-->
+<script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="{{ url_for('static', filename='compare.js') }}"></script>
+<!-- bootstrap js -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

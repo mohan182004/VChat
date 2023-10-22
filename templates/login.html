@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      c
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css')}}">
+
+      <title>FlaskyBot login</title>
+
+      <script>
+        function validateForm_login() {
+          var email = document.forms["myFormLogin"]["email"].value;
+          var password = document.forms["myFormLogin"]["password"].value;
+
+          if ( email == "" || password == "") {
+            swal({
+                text: "All fields are Required",
+                icon: "error",
+                });
+                return false;
+            }
+        }
+      </script>
+  </head>
+<body class="bg-nav">
+  <nav >
+      <a href="" class="navbar-brand "><i class="fas fa-graduation-cap"></i> XYZ College </a>
+  </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1  class="mt-100" style="font-size:5.5rem">
+            No one like you. No place like this
+        </h1>
+        <h6>
+            Login to Explore ->
+        </h6>
+        <div class="graduate">
+            <i class="fas fa-user-graduate"></i>
+        </div>
+
+        </div>
+        <div class="col-md-4">
+               {% with messages = get_flashed_messages() %}
+         {% if messages %}
+
+            {% for message in messages %}
+                <div  class="alert alert-warning alert-dismissible fade show " role="alert">
+                    <span> {{ message }}</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            {% endfor %}
+
+         {% endif %}
+        {% endwith %}
+
+        <!-- card for form login -->
+            <div class="card mt-100">
+              <div class="card-body ">
+                <form class="form" name="myFormLogin"  method="post" action="/login_validation">
+                  <label>Email <i class="fas fa-envelope"></i></label>
+                  <input type="email" name="email" class="form-control" required>  <br>
+                  <label>Password <i class="fas fa-unlock"></i></label>
+                  <input type="password" name="password" class="form-control" required><br>
+                  <input type="submit" onclick="validateForm_login()" class="btn btn-primary btn-block btn-lg" value="Login">
+
+                </form><br>
+                <p>Not a student? <a class="" href="/register">Create a Account</a></p>
+                  <p class="mt-5 mb-3 text-muted">   © Group 33</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://kit.fontawesome.com/f6b5a1856e.js" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>

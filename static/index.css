@@ -1,0 +1,163 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    font-family: Arial;
+}
+
+.title{
+   background-color: rgb(243, 187, 243);
+   letter-spacing: 0.16ch;
+   text-align: center;
+   margin-top: 0;
+}
+
+#chatbox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#userInput {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    margin-top: 60px;
+}
+
+#textInput {
+    width:100%;
+    border-radius: 0.5rem;
+    font-family:FontAwesome;
+    font-size: 1rem;
+}
+
+.userText {
+    color: white;
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-align: right;
+    line-height: 30px;
+}
+
+.userText span {
+    background-color: #808080;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.botText {
+    color: white;
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-align: left;
+    line-height: 30px;
+}
+
+.botText span {
+    background-color: #4169e1;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.boxed {
+    margin-left: 65%;
+    width: 35%;
+    height: 470px;
+    margin-top: 8%;
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    box-shadow: 10px 10px 5px #888;
+    border-radius: 1rem;
+    overflow-y: scroll;
+    position: fixed;
+}
+
+.but-last{
+    background-color: black;
+    color: white;
+    border-radius: 5rem;
+    width: 100px;
+    border: 1px solid paleturquoise;
+    cursor: pointer;
+}
+
+.but-last:hover{
+    transform: rotate(180deg);
+    transition: transform 0.5s linear;
+}
+
+.div-last{
+    margin-left: 79%;
+    margin-top: 1%;
+}
+
+
+/* dropdown */
+  .box select {
+    background-color: #0563af;
+    color: white;
+    padding: 12px;
+    width: 150px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .box select option {
+    padding: 3px;
+  }
+
+
+@media only screen and (max-width: 300px) {
+    .boxed{
+        margin-top: 37%;
+        margin-left: 6%;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px){
+.boxed{
+    margin-top: 20%;
+    margin-left: 30%;
+    width: auto;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1160px){
+    .boxed{
+        margin-top: 20%;
+        margin-left: 30%;
+        width: auto;
+    }
+}
+
+/* mic */
+.fa-microphone{
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+.fa-microphone:hover{
+    color: rgb(31, 31, 226);
+    transform: rotate(180deg);
+    transition: transform 0.5s linear;
+ }
+ .mic_button{
+    background: rgb(221, 218, 218);
+    outline: none;
+    border: 1px solid rgb(104, 104, 243);
+    border-radius: 2rem;
+    cursor: pointer;
+    float: right;
+    margin-top: -40px;
+ }
+
